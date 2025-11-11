@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Đăng nhập</title>
+    
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Font Awesome (cho logo) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- MỤC 1: Liên kết tệp CSS bên ngoài -->
+    <link rel="stylesheet" href="/assets/css/spotify_style.css">
+</head>
+<body class="bg-black">
+
+    <!-- MỤC 2: HTML -->
+
+    <!-- == PHẦN 1: TRANG ĐĂNG NHẬP == -->
+    <!-- (Ban đầu sẽ hiển thị, và căn giữa màn hình) -->
+    <div id="login-page" class="flex items-center justify-center min-h-screen">
+        <div class="bg-gray-900 p-8 rounded-lg shadow-xl w-full max-w-md">
+            
+            <!-- Logo Spotify -->
+            <div class="text-center mb-8">
+                <i class="fab fa-spotify text-6xl text-white"></i>
+                <h1 class="text-4xl font-bold mt-4">Đăng nhập vào Spotify</h1>
+            </div>
+
+            <!-- Form đăng nhập -->
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-300">Tên người dùng</label>
+                    <input type="text" id="username" placeholder="admin" class="w-full p-3 mt-1 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-300">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="••••••••" class="w-full p-3 mt-1 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                </div>
+
+                <!-- Thông báo lỗi -->
+                <p id="error-message" class="text-red-400 text-sm hidden text-center">
+                    Tên người dùng hoặc mật khẩu không chính xác.
+                </p>
+
+                <!-- Nút Đăng nhập -->
+                <button type="submit" class="w-full spotify-green text-black p-3 rounded-full font-bold text-lg spotify-green-hover transition-colors transform hover:scale-105">
+                    Đăng nhập
+                </button>
+            </form>
+            
+            <div class="text-center my-6">
+                <a href="#" class="text-gray-400 hover:text-white hover:underline">Quên mật khẩu?</a>
+            </div>
+            <hr class="border-gray-700">
+            <div class="text-center mt-6">
+                <span class="text-gray-400">Chưa có tài khoản?</span>
+                <a href="#" class="text-white font-bold hover:underline ml-1">Đăng ký Spotify</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- == PHẦN 2: TRANG CHỦ == -->
+    <!-- (Ban đầu sẽ bị ẩn) -->
+    <div id="home-page" class="hidden">
+        <div class="flex h-screen">
+            <!-- Sidebar (Bên trái) -->
+            <nav class="sidebar w-64 p-6 space-y-6 hidden md:block">
+                <div class="text-center mb-8">
+                    <i class="fab fa-spotify text-5xl text-white"></i>
+                    <h1 class="text-2xl font-bold mt-2">Spotify</h1>
+                </div>
+                <ul class="space-y-4">
+                    <li><a href="#" class="flex items-center space-x-3 text-white font-bold"><i class="fas fa-home text-2xl"></i><span>Trang chủ</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-3 text-gray-400 hover:text-white"><i class="fas fa-search text-2xl"></i><span>Tìm kiếm</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-3 text-gray-400 hover:text-white"><i class="fas fa-book text-2xl"></i><span>Thư viện</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Nội dung chính (Bên phải) -->
+            <main class="flex-1 main-content overflow-y-auto">
+                <header class="p-6 flex justify-between items-center">
+                    <h1 class="text-4xl font-bold">Chào mừng trở lại, admin!</h1>
+                    <div>
+                        <!-- Nút Đăng xuất -->
+                        <button id="logout-button" class="bg-red-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors">
+                            Đăng xuất
+                        </button>
+                    </div>
+                </header>
+                
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-4">Danh sách phát của bạn</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <!-- Ví dụ một thẻ playlist -->
+                        <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 transition-colors cursor-pointer">
+                            <img src="https://placehold.co/200x200/1DB954/000000?text=Playlist+1" alt="Playlist" class="rounded-md mb-3">
+                            <h3 class="font-bold">Nhạc hay</h3>
+                            <p class="text-sm text-gray-400">Tuyển tập...</p>
+                        </div>
+                        <!-- Ví dụ một thẻ playlist -->
+                        <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 transition-colors cursor-pointer">
+                            <img src="https://placehold.co/200x200/E111E1/FFFFFF?text=Playlist+2" alt="Playlist" class="rounded-md mb-3">
+                            <h3 class="font-bold">Nhạc buồn</h3>
+                            <p class="text-sm text-gray-400">Những bản nhạc...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <!-- MỤC 3: Liên kết tệp JavaScript bên ngoài -->
+    <!-- 'defer' đảm bảo script chỉ chạy sau khi HTML được phân tích xong -->
+    <script src="spotify_script.js" defer></script>
+
+</body>
+</html>
