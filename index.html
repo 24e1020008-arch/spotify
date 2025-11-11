@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify - Đăng nhập</title>
-    
     <!-- Tải Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tải Font Awesome (cho logo) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- MỤC 1: Liên kết tệp CSS bên ngoài -->
-    <link rel="stylesheet" href="spotify_style.css">
+    <!-- MỤC 1: CSS -->
+    <style>
+        /* Sử dụng font Inter */
+        body {
+            font-family: "Inter", sans-serif;
+            /* Các kiểu chung cho cả 2 trang */
+            background-color: #121212;
+            color: white;
+        }
+
+        /* == Kiểu cho trang Đăng nhập == */
+        .spotify-green {
+            background-color: #1DB954;
+        }
+        .spotify-green-hover:hover {
+            background-color: #1ED760;
+        }
+
+        /* == Kiểu cho trang Chủ == */
+        .sidebar {
+            background-color: #000000;
+        }
+        .main-content {
+            /* Hiệu ứng gradient mờ dần ở đầu trang chủ */
+            background: linear-gradient(to bottom, #222222, #121212 30%);
+        }
+    </style>
 </head>
 <body class="bg-black">
 
@@ -111,11 +135,9 @@
             </main>
         </div>
     </div>
+ <script src="spotify_script.js" defer></script>
 
-
-    <!-- MỤC 3: Liên kết tệp JavaScript bên ngoài -->
-    <!-- 'defer' đảm bảo script chỉ chạy sau khi HTML được phân tích xong -->
-    <script src="spotify_script.js" defer></script>
+    
 
 </body>
 </html>
